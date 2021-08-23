@@ -3,40 +3,48 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane style="-fx-border-color: black; -fx-border-width: 2; -fx-border-style: solid;"
-            xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.system.project.controller.mainFX.MainFXController">
+<AnchorPane style="-fx-border-color: black; -fx-border-width: 2; -fx-border-style: solid;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.system.project.controller.mainFX.MainFXController">
     <GridPane>
         <columnConstraints>
-            <ColumnConstraints/>
-            <ColumnConstraints/>
-            <ColumnConstraints/>
-            <ColumnConstraints/>
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints/>
+            <RowConstraints />
         </rowConstraints>
 
-        <Pane fx:id="currentPane" prefHeight="500.0" prefWidth="1000.0" GridPane.columnIndex="1">
+        <Pane fx:id="currentPane" minHeight="600.0" minWidth="1100.0" GridPane.columnIndex="1">
         </Pane>
 
         <Pane>
             <GridPane.margin>
-                <Insets left="10.0" top="10.0"/>
+                <Insets left="10.0" top="10.0" />
             </GridPane.margin>
-            <GridPane>
+            <GridPane hgap="5.0" vgap="5.0">
                 <columnConstraints>
-                    <ColumnConstraints/>
+                    <ColumnConstraints />
                 </columnConstraints>
                 <rowConstraints>
-                    <RowConstraints/>
-                    <RowConstraints/>
-                    <RowConstraints/>
+               <RowConstraints minHeight="10.0" prefHeight="20.0" />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
                 </rowConstraints>
-                <Button mnemonicParsing="false" onAction="#buttonChangeProductPane" text="Product"/>
-                <Button mnemonicParsing="false" onAction="#buttonChangeCategoryPane" text="Category" GridPane.rowIndex="1"/>
-                <Button mnemonicParsing="false" text="Button" GridPane.rowIndex="2"/>
+                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#buttonChangeProductPane" text="Product" GridPane.rowIndex="1" />
+                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#buttonChangeCategoryPane" text="Category" GridPane.rowIndex="2" />
+                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#buttonChangeCreateOrder" text="Create An Order" GridPane.rowIndex="3" />
+            <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="MENU">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <opaqueInsets>
+               <Insets left="10.0" />
+            </opaqueInsets>
             </GridPane>
         </Pane>
     </GridPane>

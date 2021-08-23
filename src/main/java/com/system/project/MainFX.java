@@ -17,7 +17,7 @@ public class MainFX extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
-        stage.setTitle("Hello!");
+        stage.setTitle("Inventory-Control");
         stage.setScene(scene);
         stage.show();
     }

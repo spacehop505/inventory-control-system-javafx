@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.system.project.controller.mainFX.OrderCartControllerFX">
+    <left>
+        <GridPane alignment="TOP_CENTER" hgap="5.0" vgap="5.0">
+           <TableView fx:id="tableProductCart" prefWidth="515.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="1">
+              <columns>
+                  <TableColumn fx:id="tableColumnProductCartId" minWidth="-1.0" prefWidth="100.0" text="ID" />
+                  <TableColumn fx:id="tableColumnProductCartName" minWidth="-1.0" prefWidth="100.0" text="Name" />
+                  <TableColumn fx:id="tableColumnProductCartDescription" minWidth="-1.0" prefWidth="100.0" text="Description" />
+                  <TableColumn fx:id="tableColumnProductCartCategory" minWidth="-1.0" prefWidth="100.0" text="Category" />
+                  <TableColumn fx:id="tableColumnProductCartRemove" minWidth="-1.0" prefWidth="100.0" text="Remove" />
+              </columns>
+           </TableView>
+         <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Cart Table" GridPane.columnSpan="2147483647">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Label>
+         <CheckBox fx:id="checkBoxCreate" alignment="TOP_RIGHT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Confirm Order" GridPane.rowIndex="2" />
+         <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onButtonClickedCreateOrder" prefWidth="150.0" text="Create Order" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <columnConstraints>
+                <ColumnConstraints prefWidth="180.0" />
+                <ColumnConstraints />
+            <ColumnConstraints prefWidth="150.0" />
+            </columnConstraints>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <BorderPane.margin>
+                <Insets left="10.0" right="10.0" />
+            </BorderPane.margin>
+            <padding>
+                <Insets bottom="2.0" left="2.0" right="2.0" />
+            </padding>
+         <rowConstraints>
+            <RowConstraints prefHeight="20.0" />
+            <RowConstraints />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" />
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+    </left>
+
+    <right>
+        <GridPane vgap="1.0">
+            <TableView fx:id="tableProduct" prefWidth="515.0" GridPane.rowIndex="1">
+                <columns>
+                    <TableColumn fx:id="tableColumnProductId" minWidth="-1.0" prefWidth="100.0" text="ID" />
+                    <TableColumn fx:id="tableColumnProductName" minWidth="-1.0" prefWidth="100.0" text="Name" />
+                    <TableColumn fx:id="tableColumnProductDescription" minWidth="-1.0" prefWidth="100.0" text="Description" />
+                    <TableColumn fx:id="tableColumnProductCategory" minWidth="-1.0" prefWidth="100.0" text="Category" />
+                    <TableColumn fx:id="tableColumnProductAddCart" minWidth="-1.0" prefWidth="100.0" text="Add To Cart" />
+                </columns>
+            </TableView>
+            <Button alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onButtonClickedRefreshProduct" text="Refresh" GridPane.rowIndex="2">
+                <GridPane.margin>
+                    <Insets top="2.0" />
+                </GridPane.margin>
+            </Button>
+            <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Product Table">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Label>
+            <columnConstraints>
+                <ColumnConstraints />
+                <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints prefHeight="20.0" />
+                <RowConstraints />
+                <RowConstraints prefHeight="25.0" />
+            <RowConstraints minHeight="10.0" prefHeight="25.0" />
+            <RowConstraints minHeight="10.0" prefHeight="20.0" />
+                <RowConstraints />
+            </rowConstraints>
+            <BorderPane.margin>
+                <Insets left="10.0" right="10.0" />
+            </BorderPane.margin>
+        </GridPane>
+    </right>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+
+
+
+</BorderPane>

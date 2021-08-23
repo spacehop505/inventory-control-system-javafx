@@ -46,4 +46,13 @@ public class MainFXController {
         currentPane.getChildren().setAll(newLoadedPane);
     }
 
+    public void buttonChangeCreateOrder(ActionEvent actionEvent) {
+        Pane newLoadedPane = null;
+        try {
+            newLoadedPane = FXMLLoader.load(MainFX.class.getResource("paneOrderCart.fxml"));
+        } catch (IOException e) {
+            System.out.println("ERROR PANE:" + e);
+        }
+        currentPane.getChildren().setAll(newLoadedPane);
+    }
 }

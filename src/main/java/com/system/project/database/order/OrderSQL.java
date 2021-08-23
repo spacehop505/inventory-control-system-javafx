@@ -2,6 +2,7 @@ package com.system.project.database.order;
 
 import com.system.project.model.order.Order;
 import com.system.project.model.order.OrderProduct;
+import com.system.project.model.product.Product;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
@@ -21,9 +22,9 @@ public class OrderSQL {
 
 
     // BATCH CREATE
-    public void insertOrderAndBatchInsertOrderProduct(Order order, List<OrderProduct> list) {
+    public void insertOrderAndBatchInsertOrderProduct(Order order, List<Product> list) {
         String lastInsertQuery = "select last_insert_id();";
-        String orderQuery = " insert into orders (order_date) values (?)";
+        String orderQuery = " insert into orders (order_date, fk_user_id) values (?, 1)";
         String orderProductQuery = " insert into order_product (fk_order_id, fk_product_id) values (?,?)";
 
         try (PreparedStatement orderStatement = con.prepareStatement(orderQuery);
@@ -42,10 +43,10 @@ public class OrderSQL {
                 orderId = result.getInt(1);
             }
 
-            for (OrderProduct orderProduct : list) {
-                System.out.println(orderId + " " + orderProduct.getOrderProductId());
+            for (Product product : list) {
+                System.out.println(orderId + " " + product.getProductId());
                 orderProductStatement.setInt(1, orderId);
-                orderProductStatement.setInt(2, orderProduct.getOrderProductId());
+                orderProductStatement.setInt(2, product.getProductId());
                 orderProductStatement.execute();
             }
             con.commit();
@@ -53,7 +54,7 @@ public class OrderSQL {
         } catch (Exception e) {
             if (con != null) {
                 try {
-                    System.err.print("Transaction is being rolled back");
+                    System.err.print("Transaction is being rolled back" +  e);
                     con.rollback();
                 } catch (SQLException excep) {
                     // JDBCTutorialUtilities.printSQLException(excep);

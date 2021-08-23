@@ -3,6 +3,7 @@ package com.system.project.controller.order;
 import com.system.project.database.order.OrderSQL;
 import com.system.project.model.order.Order;
 import com.system.project.model.order.OrderProduct;
+import com.system.project.model.product.Product;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,23 +13,15 @@ public class OrderController {
 
 
     // order and order product
-    public void createOrderAndOrderProduct( int product_id) {
-        List<OrderProduct> list = new ArrayList<>();
+    public void createOrderAndOrderProduct(List<Product> listOfProducts) {
         try {
-            for (int i = 0; i < 2; i++) {
-                OrderProduct orderProduct = new OrderProduct(product_id);
-                list.add(orderProduct);
-            }
-            System.out.println(list);
-
-            Date aa = new Date();
-            Order order = new Order(aa);
-            System.out.println(order.getOrderDate());
+            Date date = new Date();
+            Order orderObj = new Order(date);
             OrderSQL orderSQL = new OrderSQL();
-            orderSQL.insertOrderAndBatchInsertOrderProduct(order, list);
+            orderSQL.insertOrderAndBatchInsertOrderProduct(orderObj, listOfProducts);
             orderSQL.closeSQL();
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("Controller Error:" + e);
         }
     }
 }
