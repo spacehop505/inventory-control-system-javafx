@@ -7,19 +7,15 @@ import com.system.project.model.order.OrderProduct;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
 
-public class ControllerOrder {
+public class OrderController {
 
-    Scanner myObj = new Scanner(System.in);
 
     // order and order product
-    public void createOrderAndOrderProduct() {
+    public void createOrderAndOrderProduct( int product_id) {
         List<OrderProduct> list = new ArrayList<>();
         try {
             for (int i = 0; i < 2; i++) {
-                System.out.println("Enter product_id:");
-                int product_id = myObj.nextInt();
                 OrderProduct orderProduct = new OrderProduct(product_id);
                 list.add(orderProduct);
             }

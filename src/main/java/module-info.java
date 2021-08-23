@@ -5,4 +5,6 @@ module com.system.inventorycontrolsystemjavafx {
 
     exports com.system.project;
     opens com.system.project to javafx.fxml;
+    exports com.system.project.controller.mainFX;
+    opens com.system.project.controller.mainFX to javafx.fxml;
 }

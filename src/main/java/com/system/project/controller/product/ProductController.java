@@ -1,17 +1,13 @@
 package com.system.project.controller.product;
 
 import com.system.project.database.product.ProductSQL;
-import com.system.project.model.category.Category;
 import com.system.project.model.product.Product;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
-public class ControllerProduct {
-
-    Scanner myObj = new Scanner(System.in);
+public class ProductController {
 
     public List<Product> readProduct() {
         List<Product> list = new ArrayList<>();
@@ -67,6 +63,5 @@ public class ControllerProduct {
             System.err.println("ERROR - CONTROLLER:" + e);
         }
     }
-
 
 }

@@ -6,11 +6,8 @@ import com.system.project.model.category.Category;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
-public class ControllerCategory {
-
-    Scanner myObj = new Scanner(System.in);
+public class CategoryController {
 
     public List<Category> readCategory() {
         List<Category> list = new ArrayList<>();
@@ -42,14 +39,9 @@ public class ControllerCategory {
         }
     }
 
-    public void updateCategory() {
+    public void updateCategory(int category_id, String category_name) {
         try {
-            System.out.println("Enter category_name:");
-            String category_name = myObj.next();
-            System.out.println("Enter category_id:");
-            int category_id = myObj.nextInt();
             Category category = new Category(category_id, category_name);
-
             CategorySQL categorySQL = new CategorySQL();
             categorySQL.updateData(category);
 
@@ -59,10 +51,8 @@ public class ControllerCategory {
         }
     }
 
-    public void deleteCategory() {
+    public void deleteCategory(int category_id) {
         try {
-            System.out.println("Enter category_id:");
-            int category_id = myObj.nextInt();
             Category category = new Category(category_id);
             CategorySQL categorySQL = new CategorySQL();
             categorySQL.deleteData(category);
