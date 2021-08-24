@@ -15,7 +15,7 @@ public class ProductController {
             ProductSQL productSQL = new ProductSQL();
             ResultSet result = productSQL.getData();
             while (result.next()) {
-                Product product = new Product(result.getInt(1), result.getString(2), result.getString(3), result.getInt(4));
+                Product product = new Product(result.getInt(1), result.getString(2), result.getString(3), result.getInt(4), result.getString(5));
                 list.add(product);
             }
             productSQL.closeSQL();

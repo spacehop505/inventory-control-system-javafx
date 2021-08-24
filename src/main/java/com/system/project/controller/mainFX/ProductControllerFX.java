@@ -56,7 +56,7 @@ public class ProductControllerFX {
         tableColumnProductId.setCellValueFactory(product -> new SimpleStringProperty(String.valueOf(product.getValue().getProductId())));
         tableColumnProductName.setCellValueFactory(product -> new SimpleStringProperty(product.getValue().getProductName()));
         tableColumnProductDescription.setCellValueFactory(product -> new SimpleStringProperty(product.getValue().getProductDescription()));
-        tableColumnProductCategory.setCellValueFactory(product -> new SimpleStringProperty(String.valueOf(product.getValue().getCategoryId())));
+        tableColumnProductCategory.setCellValueFactory(product -> new SimpleStringProperty(String.valueOf(product.getValue().getCategoryName())));
 
         // Delete Table Button
         tableColumnProductDelete.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));

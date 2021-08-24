@@ -55,4 +55,14 @@ public class MainFXController {
         }
         currentPane.getChildren().setAll(newLoadedPane);
     }
+
+    public void buttonChangeUserPane(ActionEvent actionEvent) {
+        Pane newLoadedPane = null;
+        try {
+            newLoadedPane = FXMLLoader.load(MainFX.class.getResource("paneUser.fxml"));
+        } catch (IOException e) {
+            System.out.println("ERROR PANE:" + e);
+        }
+        currentPane.getChildren().setAll(newLoadedPane);
+    }
 }

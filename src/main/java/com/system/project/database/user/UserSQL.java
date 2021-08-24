@@ -1,15 +1,15 @@
-package com.system.project.database.product;
+package com.system.project.database.user;
 
-import com.system.project.model.product.Product;
+import com.system.project.model.user.User;
 
 import java.sql.*;
 
-public class ProductSQL {
+public class UserSQL {
 
     private Connection con;
     private ResultSet result = null;
 
-    public ProductSQL() {
+    public UserSQL() {
         try {
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "admin");
         } catch (Exception e) {
@@ -21,7 +21,7 @@ public class ProductSQL {
     public ResultSet getData() {
         try {
             Statement stmt = con.createStatement();
-            result = stmt.executeQuery("select product_id, product_name, product_description, category_id, category_name from product inner join category on category.category_id = product.fk_category_id;");
+            result = stmt.executeQuery("select * from users");
         } catch (Exception e) {
             System.err.println("ERROR - SQL: " + e);
         }
@@ -29,13 +29,12 @@ public class ProductSQL {
     }
 
     // CREATE
-    public void insertData(Product product) {
+    public void insertData(User user) {
         try {
-            String query = " insert into product (product_name, product_description, fk_category_id) values (?,?,?)";
+            String query = " insert into users (user_name, user_password) values (?,?)";
             PreparedStatement preparedStmt = con.prepareStatement(query);
-            preparedStmt.setString(1, product.getProductName());
-            preparedStmt.setString(2, product.getProductDescription());
-            preparedStmt.setInt(3, product.getCategoryId());
+            preparedStmt.setString(1, user.getName());
+            preparedStmt.setString(2, user.getPassword());
             preparedStmt.execute();
         } catch (Exception e) {
             System.err.println("ERROR - SQL: " + e);
@@ -43,14 +42,13 @@ public class ProductSQL {
     }
 
     // UPDATE
-    public void updateData(Product product) {
+    public void updateData(User user) {
         try {
-            String query = " update product set product_name=?, product_description=?,fk_category_id=?  where product_id=?;";
+            String query = " update users set user_name=?, user_password=? where user_id=?;";
             PreparedStatement preparedStmt = con.prepareStatement(query);
-            preparedStmt.setString(1, product.getProductName());
-            preparedStmt.setString(2, product.getProductDescription());
-            preparedStmt.setInt(3, product.getCategoryId());
-            preparedStmt.setInt(4, product.getProductId());
+            preparedStmt.setString(1, user.getName());
+            preparedStmt.setString(2, user.getPassword());
+            preparedStmt.setInt(3, user.getId());
             preparedStmt.execute();
         } catch (Exception e) {
             System.err.println("ERROR - SQL: " + e);
@@ -58,11 +56,11 @@ public class ProductSQL {
     }
 
     // DELETE
-    public void deleteData(Product product) {
+    public void deleteData(User user) {
         try {
-            String query = " delete from product where product_id=?";
+            String query = " delete from users where user_id=?";
             PreparedStatement preparedStmt = con.prepareStatement(query);
-            preparedStmt.setInt(1, product.getProductId());
+            preparedStmt.setInt(1, user.getId());
             preparedStmt.execute();
         } catch (Exception e) {
             System.err.println("ERROR - SQL: " + e);
@@ -76,6 +74,5 @@ public class ProductSQL {
             System.err.println("ERROR - SQL: " + e);
         }
     }
-
 
 }

@@ -15,11 +15,6 @@ import java.util.List;
 
 public class OrderCartControllerFX {
 
-
-    @FXML
-    public TextField textFieldCreateProductName;
-
-
     @FXML
     public TableView<Product> tableProduct;
     public TableColumn<Product, String> tableColumnProductId;
@@ -27,7 +22,6 @@ public class OrderCartControllerFX {
     public TableColumn<Product, String> tableColumnProductDescription;
     public TableColumn<Product, String> tableColumnProductCategory;
     public TableColumn<Product, Product> tableColumnProductAddCart;
-
 
     @FXML
     public TableView<Product> tableProductCart;
@@ -53,7 +47,7 @@ public class OrderCartControllerFX {
         tableColumnProductId.setCellValueFactory(product -> new SimpleStringProperty(String.valueOf(product.getValue().getProductId())));
         tableColumnProductName.setCellValueFactory(product -> new SimpleStringProperty(product.getValue().getProductName()));
         tableColumnProductDescription.setCellValueFactory(product -> new SimpleStringProperty(product.getValue().getProductDescription()));
-        tableColumnProductCategory.setCellValueFactory(product -> new SimpleStringProperty(String.valueOf(product.getValue().getCategoryId())));
+        tableColumnProductCategory.setCellValueFactory(product -> new SimpleStringProperty(String.valueOf(product.getValue().getCategoryName())));
 
         // Add To Cart Table Button
         tableColumnProductAddCart.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));

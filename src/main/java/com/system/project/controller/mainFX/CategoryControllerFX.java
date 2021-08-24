@@ -29,8 +29,6 @@ public class CategoryControllerFX {
         tableSetUp();
     }
 
-    ;
-
     @FXML
     private void tableSetUp() {
         CategoryController categoryController = new CategoryController();
