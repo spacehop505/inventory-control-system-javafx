@@ -1,6 +1,6 @@
 # inventory-control-system-javafx
 
-Java Mysql Application CRUD
+Java Maven Mysql Application CRUD
 
 
 
