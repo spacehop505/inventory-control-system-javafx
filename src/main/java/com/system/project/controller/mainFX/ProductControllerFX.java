@@ -7,7 +7,6 @@ import com.system.project.model.product.Product;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -44,14 +43,18 @@ public class ProductControllerFX {
         ProductController productController = new ProductController();
         CategoryController categoryController = new CategoryController();
 
+
         List<Product> listProduct = productController.readProduct();
         List<Category> listCategory = categoryController.readCategory();
 
         tableProduct.setItems(FXCollections.observableArrayList(listProduct));
+
+
+        //comboBoxCreateProductCategory.getItems().addAll(listCategory);
         comboBoxCreateProductCategory.setItems(FXCollections.observableArrayList(listCategory));
-        comboBoxCreateProductCategory.setValue(listCategory.get(0));
+        comboBoxCreateProductCategory.setValue( (listCategory.size() == 0) ? null : (Category) listCategory.get(0) );
         comboBoxUpdateProductCategory.setItems(FXCollections.observableArrayList(listCategory));
-        comboBoxUpdateProductCategory.setValue(listCategory.get(0));
+       comboBoxUpdateProductCategory.setValue((listCategory.size() == 0) ? null : (Category) listCategory.get(0));
 
         tableColumnProductId.setCellValueFactory(product -> new SimpleStringProperty(String.valueOf(product.getValue().getProductId())));
         tableColumnProductName.setCellValueFactory(product -> new SimpleStringProperty(product.getValue().getProductName()));

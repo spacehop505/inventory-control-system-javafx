@@ -10,6 +10,16 @@ public class Order {
     public Order(){
     }
 
+    public Order(int orderId, Date orderDate) {
+        this.orderId = orderId;
+        this.orderDate = orderDate;
+    }
+
+
+    public Order(int orderId) {
+        this.orderId = orderId;
+    }
+
     public Order(Date orderDate) {
         this.orderDate = orderDate;
     }

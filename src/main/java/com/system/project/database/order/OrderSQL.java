@@ -1,7 +1,6 @@
 package com.system.project.database.order;
 
 import com.system.project.model.order.Order;
-import com.system.project.model.order.OrderProduct;
 import com.system.project.model.product.Product;
 
 import java.sql.*;
@@ -24,7 +23,7 @@ public class OrderSQL {
     // BATCH CREATE
     public void insertOrderAndBatchInsertOrderProduct(Order order, List<Product> list) {
         String lastInsertQuery = "select last_insert_id();";
-        String orderQuery = " insert into orders (order_date, fk_user_id) values (?, 1)";
+        String orderQuery = " insert into orders (order_date) values (?)";
         String orderProductQuery = " insert into order_product (fk_order_id, fk_product_id) values (?,?)";
 
         try (PreparedStatement orderStatement = con.prepareStatement(orderQuery);
@@ -54,7 +53,7 @@ public class OrderSQL {
         } catch (Exception e) {
             if (con != null) {
                 try {
-                    System.err.print("Transaction is being rolled back" +  e);
+                    System.err.print("Transaction is being rolled back" + e);
                     con.rollback();
                 } catch (SQLException excep) {
                     // JDBCTutorialUtilities.printSQLException(excep);
@@ -62,6 +61,34 @@ public class OrderSQL {
             }
         }
     }
+
+    public ResultSet getData() {
+        String query = "select * from orders;";
+        try {
+            Statement stmt = con.createStatement();
+            result = stmt.executeQuery(query);
+        } catch (Exception e) {
+            System.err.println("ERROR - SQL: " + e);
+        }
+        return result;
+    }
+
+    public ResultSet readOrderedProduct(Order order) {
+        String query = "SELECT product_id, product_name, product_description, category_name, order_id FROM orders " +
+                "INNER JOIN order_product ON order_product.fk_order_id = orders.order_id " +
+                "INNER JOIN product ON product.product_id = order_product.fk_product_id " +
+                "INNER JOIN category on category.category_id = product.fk_category_id  " +
+                "where order_id = ?;";
+        try {
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            preparedStmt.setInt(1, order.getOrderId());
+            result = preparedStmt.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
 
     public void closeSQL() {
         try {

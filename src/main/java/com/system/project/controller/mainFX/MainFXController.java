@@ -15,54 +15,53 @@ public class MainFXController {
 
     @FXML
     public void initialize() {
-        Pane newLoadedPane = null;
-        try {
-            newLoadedPane = FXMLLoader.load(MainFX.class.getResource("paneProduct.fxml"));
-        } catch (IOException e) {
-            System.out.println("ERROR PANE:" + e);
-        }
-        currentPane.getChildren().setAll(newLoadedPane);
+        buttonChangeProductPane();
+
     }
 
     // Change to Product Window
-    public void buttonChangeProductPane(ActionEvent actionEvent) {
+    public void buttonChangeProductPane() {
         Pane newLoadedPane = null;
         try {
             newLoadedPane = FXMLLoader.load(MainFX.class.getResource("paneProduct.fxml"));
+            currentPane.getChildren().setAll(newLoadedPane);
         } catch (IOException e) {
             System.out.println("ERROR PANE:" + e);
         }
-        currentPane.getChildren().setAll(newLoadedPane);
+
     }
 
     // Change to Category Window
-    public void buttonChangeCategoryPane(ActionEvent actionEvent) {
+    public void buttonChangeCategoryPane() {
         Pane newLoadedPane = null;
         try {
             newLoadedPane = FXMLLoader.load(MainFX.class.getResource("paneCategory.fxml"));
+            currentPane.getChildren().setAll(newLoadedPane);
         } catch (IOException e) {
             System.out.println("ERROR PANE:" + e);
         }
-        currentPane.getChildren().setAll(newLoadedPane);
+
     }
 
-    public void buttonChangeCreateOrder(ActionEvent actionEvent) {
+    // Change to Category Order
+    public void buttonChangeCreateOrder() {
         Pane newLoadedPane = null;
         try {
             newLoadedPane = FXMLLoader.load(MainFX.class.getResource("paneOrderCart.fxml"));
+            currentPane.getChildren().setAll(newLoadedPane);
         } catch (IOException e) {
             System.out.println("ERROR PANE:" + e);
         }
-        currentPane.getChildren().setAll(newLoadedPane);
+
     }
 
-    public void buttonChangeUserPane(ActionEvent actionEvent) {
+    public void buttonChangeViewOrder() {
         Pane newLoadedPane = null;
         try {
-            newLoadedPane = FXMLLoader.load(MainFX.class.getResource("paneUser.fxml"));
+            newLoadedPane = FXMLLoader.load(MainFX.class.getResource("paneOrders.fxml"));
+            currentPane.getChildren().setAll(newLoadedPane);
         } catch (IOException e) {
             System.out.println("ERROR PANE:" + e);
         }
-        currentPane.getChildren().setAll(newLoadedPane);
     }
 }

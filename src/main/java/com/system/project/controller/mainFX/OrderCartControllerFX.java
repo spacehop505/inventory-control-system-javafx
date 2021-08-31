@@ -14,7 +14,6 @@ import java.util.Iterator;
 import java.util.List;
 
 public class OrderCartControllerFX {
-
     @FXML
     public TableView<Product> tableProduct;
     public TableColumn<Product, String> tableColumnProductId;

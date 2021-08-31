@@ -25,11 +25,12 @@ public class CategoryControllerFX {
     public TableColumn<Category, Category> tableColumnProductDelete;
     public TableColumn<Category, Category> tableColumnProductUpdate;
 
+    @FXML
     public void initialize() {
         tableSetUp();
     }
 
-    @FXML
+
     private void tableSetUp() {
         CategoryController categoryController = new CategoryController();
 

@@ -1,7 +1,6 @@
 package com.system.project.database.product;
 
 import com.system.project.model.product.Product;
-
 import java.sql.*;
 
 public class ProductSQL {

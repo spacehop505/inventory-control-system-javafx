@@ -13,7 +13,7 @@ public class CategorySQL {
         try {
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "admin");
         } catch (Exception e) {
-            System.err.println("ERROR - SQL: "+ e);
+            System.err.println("ERROR - SQL: " + e);
         }
     }
 
@@ -23,7 +23,7 @@ public class CategorySQL {
             Statement stmt = con.createStatement();
             result = stmt.executeQuery("select * from category");
         } catch (Exception e) {
-            System.err.println("ERROR - SQL: "+ e);
+            System.err.println("ERROR - SQL: " + e);
         }
         return result;
     }
@@ -36,7 +36,7 @@ public class CategorySQL {
             preparedStmt.setString(1, category.getCategoryName());
             preparedStmt.execute();
         } catch (Exception e) {
-            System.err.println("ERROR - SQL: "+ e);
+            System.err.println("ERROR - SQL: " + e);
         }
     }
 
@@ -49,7 +49,7 @@ public class CategorySQL {
             preparedStmt.setInt(2, category.getCategoryId());
             preparedStmt.execute();
         } catch (Exception e) {
-            System.err.println("ERROR - SQL: "+ e);
+            System.err.println("ERROR - SQL: " + e);
         }
     }
 
@@ -61,7 +61,7 @@ public class CategorySQL {
             preparedStmt.setInt(1, category.getCategoryId());
             preparedStmt.execute();
         } catch (Exception e) {
-            System.err.println("ERROR - SQL: "+ e);
+            System.err.println("ERROR - SQL: " + e);
         }
     }
 
@@ -69,7 +69,7 @@ public class CategorySQL {
         try {
             con.close();
         } catch (Exception e) {
-            System.err.println("ERROR - SQL: "+ e);
+            System.err.println("ERROR - SQL: " + e);
         }
     }
 

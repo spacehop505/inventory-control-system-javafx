@@ -6,6 +6,7 @@ public class Product {
     private String productDescription;
     private int categoryId;
     private String categoryName;
+    private int orderId;
     public Product(){
 
     }
@@ -29,6 +30,14 @@ public class Product {
         this.productName = productName;
         this.productDescription = productDescription;
         this.categoryId = categoryId;
+    }
+
+
+    public Product(int productId, String productName, String productDescription, String categoryName) {
+        this.productId = productId;
+        this.productName = productName;
+        this.productDescription = productDescription;
+        this.categoryName = categoryName;
     }
 
     public int getProductId() {
@@ -69,5 +78,14 @@ public class Product {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+    }
+
+
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 }
