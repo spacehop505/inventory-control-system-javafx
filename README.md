@@ -4,8 +4,10 @@
 
 
 MySQL Schema - Workbench [Database-Forward Engineer]
+
   schema/inventory-schema.mwb
 
-![ezgif-6-0cd11e981b0a](https://user-images.githubusercontent.com/65245922/131553032-be7ac381-b28e-4354-b9b8-829a86918a72.gif)
+![DDDDD](https://user-images.githubusercontent.com/65245922/131553265-28f6c0aa-b462-40a0-ae99-358543613177.png)
+
 
 
