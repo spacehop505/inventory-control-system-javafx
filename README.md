@@ -1,4 +1,5 @@
 # inventory-control-system-javafx
 
-![gdfgdfgdfgdfgdf](https://user-images.githubusercontent.com/65245922/130369663-75fdf339-43a3-4843-a9a9-5b6f5c336e20.png)
+![ezgif-6-0cd11e981b0a](https://user-images.githubusercontent.com/65245922/131552929-0f5831b2-60d4-4b22-8cf6-f1d485e75280.gif)
+
 
